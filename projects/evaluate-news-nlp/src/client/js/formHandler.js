@@ -4,13 +4,29 @@ function handleSubmit(event) {
     // check what text was put into the form field
     let formText = document.getElementById('name').value
     Client.checkForName(formText)
+    console.log(formText)
 
     console.log("::: Form Submitted :::")
-    fetch('http://api.openweathermap.org/data/2.5/weather?zip=63755&units=imperial&appid=3475ccd1b0289b8be618718233445fb0')
-    .then(res => res.json())
-    .then(function(res) {
-        document.getElementById('results').innerHTML = res.main.temp
-    })
+    fetch('http://localhost:8081/analyze', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            articleURL: formText,
+        })
+    }).then(response => response.json())
+    .then(data => {
+        document.getElementById('score_tag').innerHTML = "score_tag: " + data.score_tag
+        document.getElementById('agreement').innerHTML = "agreement: " + data.agreement
+        document.getElementById('subjectivity').innerHTML = "subjectivity: " + data.subjectivity
+        document.getElementById('confidence').innerHTML = "confidence: " + data.confidence
+        document.getElementById('irony').innerHTML = "irony: " + data.irony
+    });
+    //.then(res => res.json())
+    //.then(function(res) {
+    //    document.getElementById('results').innerHTML = res.main.temp
+    //})
 }
 
 export { handleSubmit }
