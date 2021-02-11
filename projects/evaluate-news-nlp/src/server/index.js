@@ -30,10 +30,11 @@ app.listen(8081, function () {
 
 app.post('/analyze', function (req, res) {
     const API_KEY = process.env.API_KEY;
+    console.log(process.env.API_KEY);
     const articleURL = req.body.articleURL;
-
+console.log(articleURL);
     const baseURL = 'https://api.meaningcloud.com/sentiment-2.1';
-    const params = `?key=${API_KEY}&lang=en&model=general&url=${articleUrl}`;
+    const params = `?key=${API_KEY}&lang=en&model=general&url=${articleURL}`;
     const urlToFetch = baseURL + params;
 
     console.log(urlToFetch)
@@ -46,6 +47,7 @@ app.post('/analyze', function (req, res) {
     }).then((response) => {
         return response.json();
     }).then((data) => {
+        console.log("Data from MeaningCloud", data);
         res.send({
             score_tag: data.score_tag,
             agreement: data.agreement,

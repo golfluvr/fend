@@ -17,6 +17,9 @@ function handleSubmit(event) {
         })
     }).then(response => response.json())
     .then(data => {
+
+        console.log("response from /analyze", data)
+
         document.getElementById('score_tag').innerHTML = "score_tag: " + data.score_tag
         document.getElementById('agreement').innerHTML = "agreement: " + data.agreement
         document.getElementById('subjectivity').innerHTML = "subjectivity: " + data.subjectivity

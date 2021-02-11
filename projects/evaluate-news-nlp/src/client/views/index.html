@@ -14,23 +14,21 @@
 
         <header>
             <div class="">
-                Logo
+                Sentiment Analysis
             </div>
-            <div class="">
-                navigation
-            </div>
+
         </header>
 
         <main>
             <section>
                 <form class="">
-                    <input id="name" type="text" name="input" value="" placeholder="Name">
-                    <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+                    <input id="name" type="text" name="input" value="" placeholder="url">
+                    <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
                 </form>
             </section>
 
             <section>
-                <strong>Form Results:</strong>
+                <strong>Results:</strong>
                 <div id="score_tag"></div>
                 <div id="agreement"></div>
                 <div id="subjectivity"></div>
@@ -40,7 +38,7 @@
         </main>
 
         <footer>
-            <p>This is a footer</p>
+            <p>You have reached the bottom of the page!</p>
         </footer>
 
     </body>
