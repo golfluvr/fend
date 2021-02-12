@@ -48,6 +48,7 @@ clean-webpack-plugin
 css-loader
 html-webpack-plugin
 jest
+jest-fetch-mock
 mini-css-extract-plugin
 node-fetch
 node-sass
